@@ -1,0 +1,38 @@
+table 'Dim Business Area'
+	lineageTag: aea373cf-1df7-4bef-b3e3-099ff9a9f6d4
+
+	column 'Business Area'
+		dataType: string
+		lineageTag: 5166bcac-267e-494b-9c48-2d0740698aa6
+		summarizeBy: none
+		sourceColumn: Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Business Area' = m
+		mode: import
+		source =
+				let
+				    CombinedData = Table.Combine({Data, #"Future Data"}),
+				
+				    #"Removed Other Columns" =
+				        Table.SelectColumns(
+				            CombinedData,
+				            {"Business Area"}
+				        ),
+				
+				    #"Removed Duplicates" =
+				        Table.Distinct(#"Removed Other Columns"),
+				
+				    #"Filtered Blanks" =
+				        Table.SelectRows(
+				            #"Removed Duplicates",
+				            each [Business Area] <> null and [Business Area] <> ""
+				        )
+				in
+				    #"Filtered Blanks"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

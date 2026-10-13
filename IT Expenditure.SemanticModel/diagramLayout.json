@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 176,
+            "y": 115.75
+          },
+          "nodeIndex": "Data",
+          "nodeLineageTag": "c7785a3f-35ed-4842-8f4e-a6a1ce101796",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 451,
+            "y": 120.75
+          },
+          "nodeIndex": "Future Data",
+          "nodeLineageTag": "5eca8c45-67a4-49b0-9447-23535b207b46",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 719,
+            "y": 0
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "09cf7d44-6dec-41bb-bb1a-27f38134123e",
+          "size": {
+            "height": 177,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1,
+            "y": 442.75
+          },
+          "nodeIndex": "Dim Cost Element",
+          "nodeLineageTag": "9fd15b39-4295-4a77-9baf-fdd5a4465071",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 661,
+            "y": 448.25
+          },
+          "nodeIndex": "Dim Business Area",
+          "nodeLineageTag": "aea373cf-1df7-4bef-b3e3-099ff9a9f6d4",
+          "size": {
+            "height": 167,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6,
+            "y": 0
+          },
+          "nodeIndex": "Dim Region",
+          "nodeLineageTag": "bdb13c7f-382e-4820-9b01-b5654cabbf9c",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

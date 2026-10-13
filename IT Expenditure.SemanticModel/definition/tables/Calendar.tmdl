@@ -1,0 +1,51 @@
+table Calendar
+	lineageTag: 09cf7d44-6dec-41bb-bb1a-27f38134123e
+
+	column Date
+		formatString: Short Date
+		lineageTag: 90cc3267-9b82-484c-970f-51b3d3a6bf8f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: e711fc1f-4cf8-459b-ae0a-cec7d1a20f4a
+			defaultHierarchy: LocalDateTable_3d46446f-9709-490b-8718-e1c1479a7518.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Month Number' = MONTH(Calendar[Date])
+		formatString: 0
+		lineageTag: e95e5cae-8176-4fcd-b22f-924e5581525f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name' = FORMAT(Calendar[Date], "MMM")
+		lineageTag: d77a3bad-260d-4d34-83ac-acb14d4d22f8
+		summarizeBy: none
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR('Calendar'[Date])
+		formatString: 0
+		lineageTag: 2da76c75-89a9-4ac8-984b-5e6763806e5a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	partition Calendar = calculated
+		mode: import
+		source =
+				
+				CALENDAR(
+				    DATE(2024, 1, 1),
+				    DATE(2024, 12, 31)
+				)
+
+	annotation PBI_Id = 7b75577d4b1e458bbc202350f732df08
+

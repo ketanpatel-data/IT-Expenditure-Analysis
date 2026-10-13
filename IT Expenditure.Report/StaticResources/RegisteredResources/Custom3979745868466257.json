@@ -1,0 +1,20 @@
+{
+  "name": "Custom",
+  "textClasses": {
+    "callout": {
+      "fontSize": 21
+    }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "pageSize": [
+          {
+            "pageSizeTypes": "Custom",
+            "pageSizeWidth": 1920
+          }
+        ]
+      }
+    }
+  }
+}

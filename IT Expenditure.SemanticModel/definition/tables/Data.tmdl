@@ -1,0 +1,197 @@
+table Data
+	lineageTag: c7785a3f-35ed-4842-8f4e-a6a1ce101796
+
+	measure 'Total Actual' = SUM(Data[Actual])
+		formatString: 0.00
+		lineageTag: 0f2a3c44-04da-4fe9-8bcd-9bd1efc0df22
+
+	measure 'Total Forecast' = SUM(Data[Forecast])
+		formatString: 0.00
+		lineageTag: 04e2c3fb-d904-470c-892a-f515cb338c28
+
+	measure 'Total Plan' = SUM(Data[Plan])
+		formatString: 0.00
+		lineageTag: 67c2a404-5ac7-4342-bd92-a371a32b6251
+
+	measure 'Actual vs Plan Variance' =
+			
+			[Total Actual] - [Total Plan]
+		formatString: 0.00
+		lineageTag: 60294b2a-1fcd-4b54-8058-7a33ad4dcd7f
+
+	measure 'Actual vs Plan %' = DIVIDE ([Actual vs Plan Variance],[Total Plan],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1ef38169-f0d6-4fe0-b026-d8910cb2e33f
+
+	measure 'Actual vs Forecast Variance' =
+			
+			[Total Actual] - [Total Forecast]
+		formatString: 0.00
+		lineageTag: 5642b7de-18de-4c60-bc31-44d65a8c75ae
+
+	measure 'Actual vs Forecast %' =
+			
+			DIVIDE (
+			    [Actual vs Forecast Variance],
+			    [Total Forecast],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0bc8211d-c0b8-4f99-9597-805160342699
+
+	measure 'Plan Utilization %' =
+			
+			DIVIDE (
+			    [Total Actual],
+			    [Total Plan],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c0c4dbde-dde8-4a1f-a677-9a12951e50c3
+
+	column Date
+		dataType: string
+		lineageTag: 60ff695e-acbf-4624-b8ac-b998f12a830b
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Area'
+		dataType: string
+		lineageTag: d2c011de-8049-4f1c-abd4-acf68b3bbebe
+		summarizeBy: none
+		sourceColumn: Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 57b6afe3-98e2-47be-9cdf-b12201826759
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 91e1d912-fa6d-41e6-85df-52921246d92c
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IT Sub Area'
+		dataType: string
+		lineageTag: 73e3c89e-5038-4044-bf86-5b517a9a2070
+		summarizeBy: none
+		sourceColumn: IT Sub Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IT Area'
+		dataType: string
+		lineageTag: f82f5bef-72ae-4d1b-a93c-a5e7f07d08d8
+		summarizeBy: none
+		sourceColumn: IT Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Name'
+		dataType: string
+		lineageTag: e191b32d-129b-414c-8335-50b547467d50
+		summarizeBy: none
+		sourceColumn: Cost Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Group'
+		dataType: string
+		lineageTag: e0126382-4472-4e49-8ed6-aac28f1deb76
+		summarizeBy: none
+		sourceColumn: Cost Element Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Sub Group'
+		dataType: string
+		lineageTag: a17fc55f-9139-4327-a899-b51acf457b0a
+		summarizeBy: none
+		sourceColumn: Cost Element Sub Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actual
+		dataType: double
+		lineageTag: ebed99de-efd0-4768-a18d-c67d2df228d8
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Forecast
+		dataType: double
+		lineageTag: 6cb4f184-2189-4ff4-857d-4dc8c65e5791
+		summarizeBy: sum
+		sourceColumn: Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Plan
+		dataType: double
+		lineageTag: 913b05b1-1171-44e0-b3ad-fe77f9d01aaf
+		summarizeBy: sum
+		sourceColumn: Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 05ffbb3d-84d2-4c29-b5bd-af524807997b
+		summarizeBy: none
+		sourceColumn: Month Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Cost Element Key'
+		dataType: string
+		lineageTag: ec7f21eb-59e8-4d14-9824-4bca8a4e72ee
+		summarizeBy: none
+		sourceColumn: Cost Element Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Data = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ketan\Downloads\IT Expenditure dataset.xlsx"), null, true),
+				    Data_Sheet = Source{[Item="Data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Data_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type text}, {"Business Area", type text}, {"Region", type text}, {"Country", type text}, {"IT Sub Area", type text}, {"IT Area", type text}, {"Cost element name", type text}, {"Cost Element Group", type text}, {"Cost Element Sub Group", type text}, {"Actual", type number}, {"Forecast", type number}, {"Plan", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Cost element name", "Cost Element Name"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Month Date", each Date.FromText("01-" & [Date] & "-2024")),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Custom",{"Date", "Month Date", "Business Area", "Region", "Country", "IT Sub Area", "IT Area", "Cost Element Name", "Cost Element Group", "Cost Element Sub Group", "Actual", "Forecast", "Plan"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Reordered Columns",{{"Month Date", type date}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type1", "Organization Key", each [Business Area] & "|" & [Region] & "|" & [Country] & "|" & [IT Area] & "|" & [IT Sub Area]),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"Organization Key", type text}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type2", "Cost Element Key", each [Cost Element Name]& "|"& [Cost Element Group]& "|"& [Cost Element Sub Group]),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom2",{{"Cost Element Key", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type3",{"Organization Key"}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Removed Columns",{"Date", "Month Date", "Business Area", "Region", "Country", "IT Area", "IT Sub Area", "Cost Element Group", "Cost Element Sub Group", "Cost Element Name", "Actual", "Forecast", "Plan", "Cost Element Key"})
+				in
+				    #"Reordered Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

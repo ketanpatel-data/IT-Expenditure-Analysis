@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Data","Future Data","Dim Cost Element","Dim Region","Dim Business Area"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Data
+ref table 'Future Data'
+ref table DateTableTemplate_117756d2-ea04-41fb-b5fa-67adfa87d0e0
+ref table Calendar
+ref table LocalDateTable_3d46446f-9709-490b-8718-e1c1479a7518
+ref table 'Dim Cost Element'
+ref table 'Dim Region'
+ref table 'Dim Business Area'
+
+ref cultureInfo en-US
+

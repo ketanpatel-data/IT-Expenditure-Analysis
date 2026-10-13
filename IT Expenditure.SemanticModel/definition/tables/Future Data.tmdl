@@ -1,0 +1,149 @@
+table 'Future Data'
+	lineageTag: 5eca8c45-67a4-49b0-9447-23535b207b46
+
+	measure 'Future Actual' = SUM ( 'Future Data'[Actual] )
+		formatString: 0.00
+		lineageTag: 3c6ba69d-848c-4549-8053-03b20464552c
+
+	measure 'Forecast vs Future Actual Variance' =
+			
+			[Future Actual] - [Total Forecast]
+		formatString: 0.00
+		lineageTag: 3128370c-3762-49fa-af3e-b2cdf15ffd80
+
+	measure 'Forecast vs Future Actual %' =
+			
+			DIVIDE (
+			    [Forecast vs Future Actual Variance],
+			    [Total Forecast],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 65ee75ee-475d-492c-b3c8-5ea554bd81a9
+
+	column Date
+		dataType: string
+		lineageTag: 6d06e75d-0303-46d5-a4e5-38614e106112
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Area'
+		dataType: string
+		lineageTag: cff70ed3-2ddd-4f59-b0c9-33a5f8cdca37
+		summarizeBy: none
+		sourceColumn: Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 29a4690a-4f1d-4ac0-aa89-2dd10f0621a8
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 1d6bbe0a-5892-476a-a34d-db6c06425a8a
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IT Sub Area'
+		dataType: string
+		lineageTag: faa052ce-93c6-4677-82ea-48465ea9bc92
+		summarizeBy: none
+		sourceColumn: IT Sub Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IT Area'
+		dataType: string
+		lineageTag: 06b88a0e-9ba1-4463-8a4b-f5c15672b968
+		summarizeBy: none
+		sourceColumn: IT Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Name'
+		dataType: string
+		lineageTag: e909e385-6781-4857-98eb-0d5cbf0fc710
+		summarizeBy: none
+		sourceColumn: Cost Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Group'
+		dataType: string
+		lineageTag: cc24f20d-0025-462b-a155-c5383869a6fb
+		summarizeBy: none
+		sourceColumn: Cost Element Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Sub Group'
+		dataType: string
+		lineageTag: d6d6c0cc-9737-4137-8596-86788cc4087e
+		summarizeBy: none
+		sourceColumn: Cost Element Sub Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actual
+		dataType: double
+		lineageTag: 1c1af19f-781c-407f-87d6-52182ed3bbf1
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9ceeab8c-c556-4f25-99cb-0fbc2506ad0b
+		summarizeBy: none
+		sourceColumn: Month Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Cost Element Key'
+		dataType: string
+		lineageTag: b5df72d3-f203-4cc8-a545-7a93c52fb9ec
+		summarizeBy: none
+		sourceColumn: Cost Element Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Future Data' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ketan\Downloads\IT Expenditure dataset.xlsx"), null, true),
+				    #"Future Data_Sheet" = Source{[Item="Future Data",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Future Data_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type text}, {"Business Area", type text}, {"Region", type text}, {"Country", type text}, {"IT Sub Area", type text}, {"IT Area", type text}, {"Cost element name", type text}, {"Cost Element Group", type text}, {"Cost Element Sub Group", type text}, {"Actual", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Cost element name", "Cost Element Name"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Month Date", each Date.FromText("01-" & [Date] & "-2024")),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Custom",{"Date", "Month Date", "Business Area", "Region", "Country", "IT Sub Area", "IT Area", "Cost Element Name", "Cost Element Group", "Cost Element Sub Group", "Actual"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Reordered Columns",{{"Month Date", type date}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type1", "Organization Key", each [Business Area] & "|" & [Region] & "|" & [Country] & "|" & [IT Area] & "|" & [IT Sub Area]),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"Organization Key", type text}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type2", "Cost Element Key", each [Cost Element Name] & "|" & [Cost Element Group] & "|" & [Cost Element Sub Group]),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom2",{{"Cost Element Key", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type3",{"Organization Key"}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Removed Columns",{"Date", "Month Date", "Business Area", "Region", "Country", "IT Area", "IT Sub Area", "Cost Element Group", "Cost Element Sub Group", "Cost Element Name", "Actual", "Cost Element Key"})
+				in
+				    #"Reordered Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

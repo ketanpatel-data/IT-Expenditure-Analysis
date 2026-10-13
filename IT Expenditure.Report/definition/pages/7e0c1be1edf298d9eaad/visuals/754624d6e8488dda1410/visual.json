@@ -1,0 +1,512 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "754624d6e8488dda1410",
+  "position": {
+    "x": 10.8,
+    "y": 58.32,
+    "z": 0,
+    "height": 1021.68,
+    "width": 1883.52,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "01. Geographic Budget Underutilization",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "USA: 300.0M below plan                                     ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": "Plan: 770.9M · Actual: 470.9M · Utilization: 61.1%",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "USA accounts for approximately 87.2% of the combined planned expenditure across the six geographies listed in  analysis. Its large spending base makes it the highest-priority geography for investigating the overall budget gap.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendation:  ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  },
+                  {
+                    "value": "Review USA project delivery, spending schedules, and forecast assumptions before considering budget reallocation.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "02. Labor Is the Largest Cost Pressure",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "175.9M below plan ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": "    ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#118dff"
+                    }
+                  },
+                  {
+                    "value": "                                         Labor actual: 290.3M · Regular Salaries & Wages gap: 77.8M",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Labor has the largest absolute gap among cost groups. Regular Salaries & Wages alone accounts for a 77.8M shortfall, with only 52.1% of its planned budget utilized.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendation:  ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  },
+                  {
+                    "value": "Reconcile workforce budgets with actual staffing, salary commitments, and the timing of planned expenditure.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "03. Spending Is Concentrated in Major IT Areas",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "199M actual across R2 and Manufacturing ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": "        R2: 111.2M · Manufacturing: 87.6M",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "These two sub-areas together account for approximately 198.9M in actual expenditure. Their combined plan-to-actual gap is approximately 107.0M, making them important targets for detailed budget reviews.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendation:   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  },
+                  {
+                    "value": "Prioritize variance reviews for these sub-areas and identify which projects or activities account for the largest gaps.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "04. Forecast Deviations Require Attention",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "October shortfall",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": "−15.9%",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#de6a73"
+                    }
+                  },
+                  {
+                    "value": "   ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#de6a73"
+                    }
+                  },
+                  {
+                    "value": "Actual expenditure was below forecast by 13.26M.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": "   ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#de6a73"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#de6a73"
+                    }
+                  },
+                  {
+                    "value": "November recovery",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": "  ",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": "−3.9%",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#139a06"
+                    }
+                  },
+                  {
+                    "value": "  The forecast gap narrowed to 2.95M.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "December overshoot",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  },
+                  {
+                    "value": "+27.4%",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#089408"
+                    }
+                  },
+                  {
+                    "value": "  Actual expenditure exceeded forecast by 20.32M.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendation:   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  },
+                  {
+                    "value": "Investigate the October shortfall, understand the November recovery, and identify the drivers of December's overspend.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "05. Telephone Is an Exceptional Outlier",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "+21.65M · +725.28% ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#de6a73"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#de6a73"
+                    }
+                  },
+                  {
+                    "value": "                                      Plan: 2.99M · Actual: 24.64M",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Telephone expenditure is approximately 8.25 times its planned budget. This is the clearest unfavorable cost exception in the findings provided and warrants validation before management draws conclusions.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendation:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "24pt"
+                    }
+                  },
+                  {
+                    "value": "   Verify the underlying records, budget mapping, billing periods, and actual charges before deciding on corrective action.",
+                    "textStyle": {
+                      "fontSize": "20pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

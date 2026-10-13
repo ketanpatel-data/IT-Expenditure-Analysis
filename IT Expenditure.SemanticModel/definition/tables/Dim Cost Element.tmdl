@@ -1,0 +1,53 @@
+table 'Dim Cost Element'
+	lineageTag: 9fd15b39-4295-4a77-9baf-fdd5a4465071
+
+	column 'Cost Element Group'
+		dataType: string
+		lineageTag: 59113e36-d02e-4674-944e-b872c665a7b6
+		summarizeBy: none
+		sourceColumn: Cost Element Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Sub Group'
+		dataType: string
+		lineageTag: b32c18a1-5936-412a-8e2d-bb0fd569ac71
+		summarizeBy: none
+		sourceColumn: Cost Element Sub Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Key'
+		dataType: string
+		lineageTag: 86374e5b-526f-4285-9962-0469ef50d19a
+		summarizeBy: none
+		sourceColumn: Cost Element Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Name'
+		dataType: string
+		lineageTag: 67060da8-747c-45d1-ba08-ed1d0e6fdbb5
+		summarizeBy: none
+		sourceColumn: Cost Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Cost Element' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({Data, #"Future Data"}),
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Cost Element Name", "Cost Element Group", "Cost Element Sub Group"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Cost Element Key", each [Cost Element Name] & "|" & [Cost Element Group] & "|" & [Cost Element Sub Group]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Cost Element Key", type text}}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Changed Type"),
+				    #"Removed Duplicates2" = Table.Distinct(#"Removed Duplicates1", {"Cost Element Key"})
+				in
+				    #"Removed Duplicates2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

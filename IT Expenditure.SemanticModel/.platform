@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "IT Expenditure"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e8b9854c-f0ec-4c25-b6da-00f751ac5bf6"
+  }
+}

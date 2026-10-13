@@ -1,0 +1,37 @@
+relationship e711fc1f-4cf8-459b-ae0a-cec7d1a20f4a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_3d46446f-9709-490b-8718-e1c1479a7518.Date
+
+relationship AutoDetected_05c0b04b-98e8-4a4b-8332-989f43f1101a
+	fromColumn: Data.'Cost Element Key'
+	toColumn: 'Dim Cost Element'.'Cost Element Key'
+
+relationship AutoDetected_43bfdb28-3a38-4538-ac83-0cd4028c0f18
+	fromColumn: 'Future Data'.'Cost Element Key'
+	toColumn: 'Dim Cost Element'.'Cost Element Key'
+
+relationship AutoDetected_0eba6e4b-fcff-4f2e-8822-379c954b2e95
+	fromColumn: Data.'Business Area'
+	toColumn: 'Dim Business Area'.'Business Area'
+
+relationship AutoDetected_e98b7ea7-22e8-4104-a12a-0c4a4c3f9503
+	fromColumn: 'Future Data'.'Business Area'
+	toColumn: 'Dim Business Area'.'Business Area'
+
+relationship AutoDetected_fdaba2c8-a13b-4442-ab23-1e40ebe9e0d1
+	fromColumn: Data.Region
+	toColumn: 'Dim Region'.Region
+
+relationship AutoDetected_d05bf916-f657-4fdb-bbde-aee39896effe
+	fromColumn: 'Future Data'.Region
+	toColumn: 'Dim Region'.Region
+
+relationship 5e7253d6-5768-42d5-c471-4ea0fcc063b5
+	fromColumn: Data.'Month Date'
+	toColumn: Calendar.Date
+
+relationship 210b0574-a9e2-ce07-5bca-bd55097b7e80
+	fromColumn: 'Future Data'.'Month Date'
+	toColumn: Calendar.Date
+

@@ -1,0 +1,38 @@
+table 'Dim Region'
+	lineageTag: bdb13c7f-382e-4820-9b01-b5654cabbf9c
+
+	column Region
+		dataType: string
+		lineageTag: 876d90fa-155c-441e-88e1-45e406647605
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Region' = m
+		mode: import
+		source =
+				let
+				    CombinedData = Table.Combine({Data, #"Future Data"}),
+				
+				    #"Removed Other Columns" =
+				        Table.SelectColumns(
+				            CombinedData,
+				            {"Region"}
+				        ),
+				
+				    #"Removed Duplicates" =
+				        Table.Distinct(#"Removed Other Columns"),
+				
+				    #"Filtered Blanks" =
+				        Table.SelectRows(
+				            #"Removed Duplicates",
+				            each [Region] <> null and [Region] <> ""
+				        )
+				in
+				    #"Filtered Blanks"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
